@@ -91,9 +91,10 @@ $costumer_99_cart = $costumer_99->getCart();
                     Prezzo: <?php echo $product->price; ?> €</div>
                 </li>
             </ul>
-
         </div>
     <?php } ?>
+
+    <h3 class="total">Totale carrello: <?php echo $costumer_99->getCartTotal(); ?> €</h3>
     
 </body>
 </html>
