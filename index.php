@@ -12,9 +12,22 @@ $inferno_book = new Book(10450, 'Mondadori', 'Libri', 15.50, 'Inferno', 'Dante')
 
 $samsung_smartphone = new Electronics(80430, 'Samsung', 'Elettronica', 699.00, 'Smartphone');
 
-$adidas_shoes = new Shoes(20770, 'Adidas', 'Scarpe', 78.90, 'Maschile', 43);
-
 $hasbro_game = new Toy(50970, 'Hasbro', 'Giocattoli', 29.50, 9);
+
+// Es try and catch
+// $_shoe_number deve essere un numero intero altrimenti errore
+try {
+    $adidas_shoes = new Shoes(20770, 'Adidas', 'Scarpe', 78.90, 'Maschile', 43);
+} catch(Exception $e) {
+
+    // Scrittura nel file di log.
+    error_log($e);
+
+    // Gestione error
+    echo '<div style="color: red; font-size: 30px; text-align: center;">
+            Stiamo effettuando una manutenzione dei nostri server. Torneremo al più presto!</div>';
+    die();
+}
 
 $costumer_99 = new Costumer('Marco', 'Antonioli', 'marco.ant@gmail.com');
 $costumer_99->addProduct($vichy_cream);
@@ -79,8 +92,8 @@ $costumer_99_cart = $costumer_99->getCart();
                     <li>Genere: <?php echo $product->gender; ?></li>
                 <?php } ?>
 
-                <?php if(isset($product->number)) { ?>
-                    <li>Numero: <?php echo $product->number; ?></li>
+                <?php if(isset($product->shoeNumber)) { ?>
+                    <li>Numero: <?php echo $product->shoeNumber; ?></li>
                 <?php } ?>
 
                 <?php if(isset($product->age)) { ?>

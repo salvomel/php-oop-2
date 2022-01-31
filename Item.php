@@ -1,5 +1,9 @@
 <?php
+
+require_once __DIR__ . '/Invoice.php';
 class Item {
+
+    use Invoice;
 
     public $id_code;
     public $brand;
